@@ -8,14 +8,6 @@ pub struct RError {
     data: Option<Repr>,
 }
 
-impl Drop for RError {
-    fn drop(&mut self) {
-        if self.data.is_some() {
-            panic!("{}", self);
-        }
-    }
-}
-
 impl RError {
     pub fn ignore(self) {
         let mut this = self;
